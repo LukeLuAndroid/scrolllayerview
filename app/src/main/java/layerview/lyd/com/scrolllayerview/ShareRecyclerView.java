@@ -44,6 +44,7 @@ public class ShareRecyclerView extends RecyclerView {
                 downY = e.getRawY();
                 pointY = e.getRawY();
                 mShareLayout.setPointYFromChild(pointY);
+                mShareLayout.down(e);
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (pointY == -1) {
@@ -67,7 +68,7 @@ public class ShareRecyclerView extends RecyclerView {
                     }
                 }
                 pointY = e.getRawY();
-                return false;
+                return true;
             case MotionEvent.ACTION_UP:
                 //同步点击后up的z坐标数据
                 if (mShareLayout != null) {

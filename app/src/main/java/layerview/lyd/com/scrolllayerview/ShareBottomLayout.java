@@ -288,6 +288,16 @@ public class ShareBottomLayout extends FrameLayout{
         this.pointFromChild = y;
     }
 
+    public boolean down(MotionEvent event){
+        if (vTracker == null) {
+            vTracker = VelocityTracker.obtain();
+        } else {
+            vTracker.clear();
+        }
+        vTracker.addMovement(event);
+        return true;
+    }
+
     public boolean move(MotionEvent event) {
         if (vTracker == null) {
             vTracker = VelocityTracker.obtain();
